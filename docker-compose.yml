@@ -1,0 +1,23 @@
+version: '3.2'
+services:
+  python_app:
+    build: ./services/python_app
+    working_dir: /usr/src/app
+    volumes:
+     - ${PWD}/volumes/python_app:/usr/src/app:rw
+    environment:
+      TEST_VAR: ${TEST_VAR}
+    command: "python ./hello-world.py"
+
+volumes:
+  python_app:
+    driver: local
+    driver_opts:
+      o: bind
+      device: ${PWD}/volumes/python_app
+
+secrets:
+  localhost.crt:
+    file: ./secrets/localhost.crt
+  localhost.key:
+    file: ./secrets/localhost.key
