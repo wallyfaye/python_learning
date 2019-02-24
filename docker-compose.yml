@@ -7,7 +7,7 @@ services:
      - ${PWD}/volumes/python_app:/usr/src/app:rw
     environment:
       TEST_VAR: ${TEST_VAR}
-    command: "python ./hello-world.py"
+    command: "sh start.sh"
 
 volumes:
   python_app:

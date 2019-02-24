@@ -1,0 +1,1 @@
+autopep8 --in-place --aggressive ./hello-world.py && python ./hello-world.py
